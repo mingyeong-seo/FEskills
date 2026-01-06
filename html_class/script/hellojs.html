@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 스크립트 선언문 -->
+    <script src="../js/myScript.js"></script>
+    <!-- <script>
+      // 이건 라인 주석
+      /*
+        이건 블락 주석
+        */
+      function myfunction() {
+        //실행문
+        // alert("호출됨");
+        document.getElementById("cha").innerHTML = "변경";
+      }
+    </script> -->
+  </head>
+  <body>
+    <button type="button" onclick="urfun('서민경')">출석</button>
+    <button
+      type="button"
+      onclick="document.getElementById('cha').innerHTML='짠!'"
+    >
+      값 변경
+    </button>
+    <p id="cha">값이 변경됩니다</p>
+
+    <!--body 사이에 있는걸 document 객체-->
+    <h1>First Javascript</h1>
+    <!-- id는 유일성을 가짐 -->
+    <!-- 객체는 속성과 메소드를 가진다 -->
+
+    <button
+      type="button"
+      onclick="document.getElementById('demo').innerHTML=Date()"
+    >
+      Click Me
+    </button>
+    <p id="demo"></p>
+    <!-- 토글은 2개 중 하나 선택해서 활성화하는 것 -->
+
+    <button
+      type="button"
+      onclick="document.getElementById('sty').style.display='none'"
+    >
+      들어가
+    </button>
+    <button
+      type="button"
+      onclick="document.getElementById('sty').style.display='block'"
+    >
+      다시 나와
+    </button>
+    <p id="sty">웅</p>
+
+    <script>
+      // let gen = prompt("성별 코드 입력");
+      // if (gen % 2 == 0) {
+      //   alert("당신은 남성이군요");
+      // } else {
+      //   alert("당신은 여성이군요");
+      // }
+
+      let a = Number(prompt("숫자 1~ 9 중 첫번째 입력하세요"));
+      let b = Number(prompt("숫자 1~ 9 중 두번째 입력하세요"));
+
+      let sum = 0;
+
+      console.log("첫번째 숫자는 " + a);
+      console.log("두번째 숫자는 " + b);
+
+      if (a >= b) {
+        // 10 1
+        let temp = a;
+        a = b; // 1 1
+        b = temp; //1 1
+      }
+      console.log(a + "부터 " + b + "까지의 합을 구하겠습니다.");
+
+      for (let i = a; i <= b; i++) {
+        sum += i;
+      }
+      console.log("합은 " + sum);
+    </script>
+  </body>
+</html>

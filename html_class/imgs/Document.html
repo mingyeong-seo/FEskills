@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://127.0.0.1:5500/html_class/script/hellojs.HTML -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 스크립트 선언문 -->
+    <script src="./Document_files/myScript.js.다운로드"></script>
+    <!-- <script>
+      // 이건 라인 주석
+      /*
+        이건 블락 주석
+        */
+      function myfunction() {
+        //실행문
+        // alert("호출됨");
+        document.getElementById("cha").innerHTML = "변경";
+      }
+    </script> -->
+  </head>
+  <body>
+    <button type="button" onclick="urfun(&#39;서민경&#39;)">출석</button>
+    <button type="button" onclick="document.getElementById(&#39;cha&#39;).innerHTML=&#39;짠!&#39;">
+      값 변경
+    </button>
+    <p id="cha">값이 변경됩니다</p>
+
+    <!--body 사이에 있는걸 document 객체-->
+    <h1>First Javascript</h1>
+    <!-- id는 유일성을 가짐 -->
+    <!-- 객체는 속성과 메소드를 가진다 -->
+
+    <button type="button" onclick="document.getElementById(&#39;demo&#39;).innerHTML=Date()">
+      Click Me
+    </button>
+    <p id="demo"></p>
+    <!-- 토글은 2개 중 하나 선택해서 활성화하는 것 -->
+
+    <button type="button" onclick="document.getElementById(&#39;sty&#39;).style.display=&#39;none&#39;">
+      들어가
+    </button>
+    <button type="button" onclick="document.getElementById(&#39;sty&#39;).style.display=&#39;block&#39;">
+      다시 나와
+    </button>
+    <p id="sty">웅</p>
+
+    <script>
+      let gen = prompt("성별 코드 입력");
+      if (gen % 2 == 0) {
+        alert("당신은 남성이군요");
+      } else {
+        alert("당신은 여성이군요");
+      }
+    </script>
+  <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>
