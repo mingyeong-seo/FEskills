@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+    3.  sumBetweenTwoNumbers_range.html
+    - 숫자 2개를 입력받는다.
+    - start, end 변수를 사용해 작은 값과 큰 값을 구분한다.
+    - for문으로 두 수 사이의 합을 계산한다.
+    -->
+    <script>
+      let num1 = Number(prompt('첫번째 숫자 입력'));
+      let num2 = Number(prompt('두번째 숫자 입력'));
+
+      let start, end;
+      let sum = 0;
+
+      if (num1 >= num2) {
+        start = num2;
+        end = num1;
+      } else {
+        start = num1;
+        end = num2;
+      }
+
+      for (let i = start; i <= end; i++) {
+        sum += i;
+      }
+
+      console.log(sum);
+    </script>
+  </body>
+</html>
