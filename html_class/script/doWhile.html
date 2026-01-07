@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+    do(수행문) while(조건식);
+    while과 비슷하지만 무조건 한번은 수행한다는 것이 차이점임.
+    이유는 수행문이 조건식인 while보다 앞에 있기 때문.
+    while 조건식이 false인 경우 루프는 중단됨.
+    -->
+
+    <script>
+      /* do {
+        alert("수행됨");
+      } while (false); */
+      let kor, eng, math, total, avg, counter;
+      total = 0;
+      counter = 0;
+
+      //   // do while 이용해서 과목 3개를 입력받아서 처리
+      //   do {
+      //     kor = parseInt(prompt("국어 점수 입력"));
+      //     if (kor >= 0 && kor <= 100) {
+      //       counter++;
+      //     } else {
+      //       alert("새로고침해서 다시 실행");
+      //       continue;
+      //     }
+      //     eng = parseInt(prompt("영어 점수 입력"));
+      //     if (eng >= 0 && eng <= 100) {
+      //       counter++;
+      //     } else {
+      //       alert("새로고침해서 다시 실행");
+      //       continue;
+      //     }
+
+      //     math = parseInt(prompt("수학 점수 입력"));
+      //     if (math >= 0 && math <= 100) {
+      //       counter++;
+      //     } else {
+      //       alert("새로고침해서 다시 실행");
+      //       continue;
+      //     }
+      //   } while (counter < 3);
+
+      do {
+        kor = parseInt(prompt("국어 점수 입력"));
+      } while (kor < 0 || kor > 100);
+
+      do {
+        eng = parseInt(prompt("영어 점수 입력"));
+      } while (eng < 0 || eng > 100);
+
+      do {
+        math = parseInt(prompt("수학 점수 입력"));
+      } while (math < 0 || math > 100);
+
+      total = kor + eng + math;
+      avg = total / 3;
+
+      console.log("총점: " + total + " 평균: " + avg);
+    </script>
+  </body>
+</html>
