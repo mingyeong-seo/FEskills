@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*  const numbers = {
+        a: 1,
+        b: 2,
+        sum: 3,
+
+        calculate() {
+          console.log("calc");
+          this.sum = this.a + this.b;
+        },
+        get aa() {
+          return this.a;
+        },
+        get bb() {
+          return this.b;
+        },
+        // setter 정의
+        set aa(value) {
+          console.log("a가 바뀜");
+          this.a = value;
+          this.calculate();
+        },
+        set bb(value) {
+          console.log("b가 바뀜");
+          this.b = value;
+          this.calculate();
+        },
+      }; */
+
+      /*  const ironma = {
+        name: "스타크",
+        actor: "로다주",
+        alias: "아이언맨",
+        //메소드 만들기
+
+        say: function say() {
+          console.log(this.name);
+        },
+      };
+      ironma.say(); */
+      /* // function print(theHero) {
+    const text = `${theHero.alias}(${theHero.name})역할을 한 배우는 ${theHero.actor}임`;
+} */
+
+      const todos = [
+        { id: 1, text: "스크립트 입문", done: true },
+        { id: 2, text: "스크립트 배열", done: false },
+        { id: 3, text: "객체", done: false },
+        { id: 4, text: "함수", done: true },
+      ];
+      const list = [];
+
+      const small = todos.filter((element) => element.done == false);
+
+      /* const todos = [
+        { id: 1, text: "스크립트 입문", done: true },
+        { id: 2, text: "스크립트 배열", done: false },
+        { id: 3, text: "객체", done: false },
+        { id: 4, text: "함수", done: true },
+      ];
+      let ids = [];
+
+      todos.forEach((todo) => ids.push(todo.id));
+      console.log(ids); */
+
+      // const a = todos.find( element => element.done == true);
+
+      /*  function doSome() {
+        alert("hi");
+      }
+      doSome();
+      const alt = (msg) => {
+        alert(msg);
+      };
+
+      const todos = [
+        {
+          id: 1,
+          text: "스크립트 입문",
+          done: true,
+        },
+        {
+          id: 2,
+          text: "스크립트 배열",
+          done: false,
+        },
+        {
+          id: 3,
+          text: "객체",
+          done: false,
+        },
+      ];
+      const clb = (todo) => todo.id == 2;
+      const idx = todos.findIndex(clb);
+      idx;
+ */
+      /* // 10보다 작은 수들의 개수를 출력
+      function countBigger(numbers) {
+        let smallCnt = 0;
+        for (let i = 0; i < numbers.length; i++) {
+          if (numbers[i] < 10) {
+            smallCnt++;
+          }
+        }
+        return smallCnt;
+      }
+
+      const count = countBigger([1, 2, 3, 4, 5, 10, 20, 4, 8, 100]);
+
+      console.log(count); */
+
+      /* // 람다식 표현
+      const count = [1, 2, 3, 4, 5, 10, 20, 4, 8, 100];
+      const small = count.filter((count) => count < 10); */
+
+      /* 람다식 2
+      function countBigger(numbers) {
+        let count = 0;
+        // forEach 이용해보기
+        numbers.forEach((value) => {
+          if (value < 10) {
+            count++;
+          }
+        });
+        return count;
+      }
+      const count = countBigger([1, 2, 3, 4, 5, 10, 20, 4, 8, 100]);
+      console.log(count); */
+
+      /* const arr = [1, 2, 3, 4, 5];
+      const squar = (n) => n * n;
+      const squar = (n) => n * n; // n 파라미터 값을 n * n해서 리턴하라는 람다함수
+      const squar2 = arr.map(squar); */
+    </script>
+  </body>
+</html>
