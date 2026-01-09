@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*          const cookieDate = 'init: 2025.1.01 : exp: 2025.1.8'
+      undefined
+      let data2 = cookieDate.substr(cookieDate.indexOf("exp"));
+      undefined
+      let data2 = cookieDate.substr(cookieDate.indexOf("=") + 1);
+      undefined
+      let data2 = new Date(
+        cookieDate.substr(cookieDate.indexOf("=") + 1)
+      );
+      undefined
+      let diff = data2.getTime() - Date.now();
+      undefined
+      if (diff >= 0) {
+        console.log("쿠키 유효기간 남아있음");
+      } else {
+        console.log("쿠키 유효기간 만료됨");
+      }
+      VM13545:4 쿠키 유효기간 만료됨 */
+      /*  // 쿠키 문자열
+            let cookieDate = "init: 2025.1.01 : exp: 2025.1.8";
+
+            // 1️⃣ 공백 기준으로 분리
+            const parts = cookieDate.split(" ");
+            // ['init:', '2025.1.01', ':', 'exp:', '2025.1.8']
+
+            // 2️⃣ 시작 날짜 분리
+            const startParts = parts[1].split(".");
+            // ['2025', '1', '01']
+
+            const startMonth = parseInt(startParts[1]); // 1
+            const startDate = parseInt(startParts[2]); // 1
+
+            // 3️⃣ 만료 날짜 분리
+            const endParts = parts[4].split(".");
+            // ['2025', '1', '8']
+
+            const endMonth = parseInt(endParts[1]); // 1
+            const endDate = parseInt(endParts[2]); // 8
+
+            // 4️⃣ 오늘 날짜 가져오기
+            const today = new Date();
+            const checkMonth = today.getMonth() + 1; // 월은 0부터라 +1
+            const checkDate = today.getDate();
+
+            // 5️⃣ 기간 비교
+            if (
+              checkMonth >= startMonth &&
+              checkMonth <= endMonth &&
+              checkDate >= startDate &&
+              checkDate <= endDate
+            ) {
+              console.log("당신의 쿠키 유효기간 남았습니다.");
+            } else {
+              console.log("당신의 쿠키 유효기간이 만료되었습니다.");
+            } */
+
+      /*
+            const me = {name: '민경', age:24};
+      .
+      me
+      {name: '민경', age: 24}
+      me.namew
+
+      me.name
+      '민경'
+      // 우리반 학생들 객체를 생성하기 위해서 생성자 함수를 정의합니다.
+      .
+      // 공통적으로 가져야 할 속성과 범위(메소드)를 정의하는 것으로 합니다.
+      .
+      function BCampStu(name) {
+          this.name = name;
+          this.age = age;
+      }
+      .
+      // 위처럼 생성자를 정의한 경우, 객체를 추출하기 위해서는 new 라는 키워드를 이용, 생성자를 호출한다.
+      .
+      const jason = new BCampStu('재현', 31);
+      VM948:3 Uncaught ReferenceError: age is not defined
+          at new BCampStu (<anonymous>:3:16)
+          at <anonymous>:1:15
+      BCampStu @ VM948:3
+      (anonymous) @ VM1286:1Understand this error
+      const hyoj = new BCampStu('효정', 21);
+      VM948:3 Uncaught ReferenceError: age is not defined
+          at new BCampStu (<anonymous>:3:16)
+          at <anonymous>:1:14
+      BCampStu @ VM948:3
+      (anonymous) @ VM1394:1Understand this error
+      function BCampStu(name, age) {
+          this.name = name;
+          this.age = age;
+      }
+      .
+      const jason = new BCampStu('재현', 31);
+      .
+      const hyoj = new BCampStu('효정', 21);
+      .
+      jason
+      BCampStu {name: '재현', age: 31}
+      hyoj
+      BCampStu {name: '효정', age: 21}
+      jason.city = '서울';
+      '서울'
+      jason.city
+      '서울'
+      BCampStu.prototype.nation = 'korea';
+      'korea'
+      hyoj.nation
+      'korea'
+      // changeName이라는 메소드를 prototype을 이용해서 생성자에 추가하세요.
+      // 새로운 이름을 받아서 기존의 이름을 변경하도록 메소드를 정의하세요
+      .
+      BCampStu.prototype.changeName(changeName => this.changeName = changeName);
+      VM2356:1 Uncaught TypeError: BCampStu.prototype.changeName is not a function
+          at <anonymous>:1:20
+      (anonymous) @ VM2356:1Understand this error
+      BCampStu.prototype.changeName(changeName => this.name = changeName);
+      VM2367:1 Uncaught TypeError: BCampStu.prototype.changeName is not a function
+          at <anonymous>:1:20
+      (anonymous) @ VM2367:1Understand this error
+      BCampStu.prototype.changeName(changeName => name = this.changeName);
+      VM2387:1 Uncaught TypeError: BCampStu.prototype.changeName is not a function
+          at <anonymous>:1:20
+      (anonymous) @ VM2387:1Understand this error
+      changeName(newName) {
+          BCampStu.name = newName;
+      }
+      VM2548:1 Uncaught SyntaxError: Unexpected token '{'Understand this error
+      function changeName(newName) {
+          BCampStu.name = newName;
+      }
+      .
+      BC
+      VM2580:1 Uncaught ReferenceError: BC is not defined
+          at <anonymous>:1:1
+      (anonymous) @ VM2580:1Understand this error
+      BCampStu.prototype.changeName('민경');
+      VM2708:1 Uncaught TypeError: BCampStu.prototype.changeName is not a function
+          at <anonymous>:1:20
+      (anonymous) @ VM2708:1Understand this error
+      BCampStu.prototype.changeName = '민경';
+      '민경'
+      hyoj.changeName;
+      '민경'
+      BCampStu.prototype.changeName=function (name) {this.name = name;}
+      ƒ (name) {this.name = name;}
+      hyoj.changeName
+      ƒ (name) {this.name = name;}
+      hyoj.changeName('민경');
+      .
+      hyoj.name
+      '민경'
+      hyoj.changeName('경민');
+      .
+      hyoj.name
+      '경민'
+      자바스크립트의 내장 객체는 기본적으로 생성자 함수를 모두 가지고 있다.
+      VM3705:1 Uncaught SyntaxError: Unexpected identifier '내장'Understand this error
+      // 자바스크립트의 내장 객체는 기본적으로 생성자 함수를 모두 가지고 있다.
+      .
+      const arr = new Array();
+      .
+      new Date();
+      Fri Jan 09 2026 10:33:32 GMT+0900 (한국 표준시)
+      new RegExp();
+      /(?:)/
+      const p = {n:'민경', age:24};
+      .
+      let {n, age} = p;
+      .
+      let {n, age, nation='kor'} = p
+      .
+      nation
+      'kor'
+      let {n:name} = p;
+      .
+      name
+      '민경'
+      let name = 'hello world';
+      .
+      let [] = name;
+      .
+      let [a, b, c, d] = name;
+      .
+      z
+      VM4427:1 Uncaught ReferenceError: z is not defined
+          at <anonymous>:1:1
+      (anonymous) @ VM4427:1Understand this error
+      a
+      'h'
+      const fru = ['banana', 'orange', 'apple'];
+      .
+      let [f1, f2, f3] = fru;
+      .
+      f1
+      'banana'
+      //..를 사용해서 배열을 건너뛸수도 있다
+      .
+      let [f1...f2] = fru;
+      VM4805:1 Uncaught SyntaxError: Unexpected token '...'Understand this error
+      let [f1,,f2] = fru;
+      .
+      f2
+      'apple'
+      const{[0]:f4, [1]:f5} = fru;
+
+      const number = [10, 20, 30, 40, 50, 60, 70];
+      const [aa,bb,...rest] = number;
+      rest
+
+
+      let a = 'abcdefg';
+      .
+      for(const ch of a) {
+          console.log(ch);
+      }
+
+      const mapFru = new Map([
+          ['app', 1000],
+          ['banana', 2000]
+          ]);
+
+          for(const [key,value] of mapFru){
+          console.log(key + " : " + value);
+      }
+
+      const mapFru = new Map([
+          ['app', 1000],
+          ['banana', 2000]
+          ]);
+      .
+      for(let entry of mapFru) {
+          console.log(entry);
+      }
+      VM6661:2 (2) ['app', 1000]
+      VM6661:2 (2) ['banana', 2000]
+      .
+      for(let [key, value] of mapFru){
+          console.log(value);
+          ]
+      VM6943:3 Uncaught SyntaxError: Unexpected token ']'Understand this error
+      for(const [key,value] of mapFru){
+          console.log(key + " : " + value);
+      }
+
+      for(let [key, value] of mapFru){
+          console.log(value);
+      }
+
+      let x = 100 / 'a';
+      isNaN(x);
+      x = 100 / "10";
+      x = 9.656;
+      x.toExponential(4);
+      x.toFixed(0);
+      x.toFixed(2);
+      x.toFixed(4);
+      x.toFixed(3);
+      Number(true);
+      Number(false);
+      Number("       10 ");
+      Number("       1d3 ");
+      Number("        ");
+
+
+      Date.now();
+      const now = new Date();
+      now
+      now2 = new Date('2026.01.30');
+      now2 = new Date(1767927166098);
+
+      now2 = new Date(2026,11,25,0,0); //인덱스이기때문에 0부터 시작 그래서 12월은 11로 값을 줘야 한다
+      now2
+      now2.toLocaleString();
+
+       */
+    </script>
+  </body>
+</html>

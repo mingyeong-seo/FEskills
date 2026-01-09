@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.log(document.cookie);
+
+      const cookies = document.cookie;
+
+      const cookie = cookies.split(";");
+      let flag = false;
+
+      for (let x of cookie) {
+        console.log(
+          (flag = x.substring(0, x.indexOf("=")).trim() == "id" ? true : false)
+        );
+        if (flag) break;
+      }
+      console.log(flag);
+
+      document.cookie = "id='';max-Age=0;path=/";
+
+      /* console.log(cookie);
+
+      const idCookie = cookie.find((value) => value.trim().startsWith("id="));
+
+      if (idCookie) {
+        console.log(idCookie);
+      }  
+
+      let k = 10;
+undefined
+k+u;
+VM139:1 Uncaught ReferenceError: u is not defined
+    at <anonymous>:1:3
+(anonymous) @ VM139:1Understand this error
+try {
+    k+u;
+} catch(error) {
+    console.log(error);
+}
+VM309:4 ReferenceError: u is not defined
+    at <anonymous>:2:7
+undefined
+try {
+    k+u;
+    console.log("try 코드임".);
+} catch(error) {
+    console.log(`에러 내용은 ` + error.name);
+}
+VM417:3 Uncaught SyntaxError: Unexpected token ')'Understand this error
+try {
+    k+u;
+    console.log("try 코드임");
+} catch(error) {
+    console.log(`에러 내용은 ` + error.name);
+}
+VM424:5 에러 내용은 ReferenceError
+undefined
+let u =1;
+undefined
+try {
+    k+u;
+    console.log("try 코드임");
+} catch(error) {
+    console.log(`에러 내용은 ` + error.name);
+}
+VM452:3 try 코드임
+undefined
+try {
+    k+j;
+    console.log("try 코드임");
+} catch(error) {
+    console.log(`에러 내용은 ` + error.name);
+}
+VM461:5 에러 내용은 ReferenceError
+undefined
+try {
+    k+j;
+    console.log("try 코드임");
+} catch(error) {
+    let j = 10;
+    console.log(k + j);
+}
+VM557:6 20
+    */
+    </script>
+  </body>
+</html>
