@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+    6.   evenMultiplicationTable.html
+    - 2단부터 9단까지 구구단을 출력한다.
+    - 곱한 결과가 짝수인 경우만 출력한다.
+    - continue를 사용한다.
+    -->
+    <script>
+      for (let i = 2; i <= 9; i++) {
+        for (let j = 1; j <= 9; j++) {
+          let result = i * j;
+          if (result % 2 != 0) {
+            continue;
+          } else {
+            console.log(result);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+/* 전역에 padding을 줘서 레이아웃이 이상해지는 대표 실수 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+  width: 480px;
+  margin: 40px auto;
+  border-bottom: 1px solid #000;
+  padding: 20px;
+}
+
+h1 {
+  padding: 15px;
+}
+
+p {
+  padding: 15px;
+  border-bottom: 1px solid #000;
+}
+ul {
+  list-style: none;
+}

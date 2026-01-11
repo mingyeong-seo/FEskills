@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+    5.   stringCharCounter.html
+    - 문자열 하나를 입력받는다.
+    - 문자열을 한 글자씩 검사한다.
+    - 숫자의 개수와 대문자 알파벳의 개수를 각각 출력한다.
+    -->
+    <script>
+      let string = '';
+      string = prompt('문자열 하나를 입력');
+      let leng = string.length;
+
+      let numCounter = 0;
+      let upperCounter = 0;
+
+      for (let i = 0; i < leng; i++) {
+        if (string.charCodeAt(i) >= 48 && string.charCodeAt(i) <= 57) {
+          numCounter++;
+        }
+        if (string.charCodeAt(i) >= 65 && string.charCodeAt(i) <= 90) {
+          upperCounter++;
+        }
+      }
+      console.log(
+        '숫자 개수: ' + numCounter + ' 대문자 알파벳 개수: ' + upperCounter
+      );
+    </script>
+  </body>
+</html>

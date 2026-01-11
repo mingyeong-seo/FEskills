@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>지원서 연습</title>
+    <!-- 경로 일부러 불안정하게 작성 -->
+    <link rel="stylesheet" href="css/broken.css" />
+  </head>
+  <body>
+    <div id="container">
+      <h1>프론트엔드 개발자 지원서</h1>
+      <p>HTML/CSS 폼 요소와 접근성, 레이아웃을 연습합니다.</p>
+
+      <form>
+        <fieldset>
+          <legend>개인정보</legend>
+          <ul>
+            <li>
+              <!-- for/id 불일치 -->
+              <label for="user-name">이름</label>
+              <input type="text" id="user-name" name="name" />
+            </li>
+            <li>
+              <label for="tel">연락처</label>
+              <input type="tel" id="tel" name="tel" />
+            </li>
+          </ul>
+        </fieldset>
+
+        <fieldset>
+          <legend>지원 분야</legend>
+          <ul>
+            <li>
+              <!-- name 다르게 줘서 그룹 안 됨 / value 없음 -->
+              <input type="radio" id="wp" name="field1" value="publishing" />
+              <label for="wp">웹 퍼블리싱</label>
+            </li>
+            <li>
+              <!-- id/for 불일치 / value 없음 -->
+              <input type="radio" id="wad" name="field1" value="application" />
+              <label for="wad">웹 어플리케이션 개발</label>
+            </li>
+            <li>
+              <!-- value 없음 -->
+              <input type="radio" id="de" name="field1" value="environment" />
+              <label for="de">개발 환경 개선</label>
+            </li>
+          </ul>
+        </fieldset>
+
+        <fieldset>
+          <legend>지원동기</legend>
+          <textarea
+            cols="50"
+            rows="4"
+            placeholder="지원 동기를 작성하세요."
+          ></textarea>
+          <div class="button">
+            <input type="submit" value="접수하기" />
+            <input type="reset" value="다시 쓰기" />
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>
+
+<!-- 
+너의 제출 목표(고친 결과가 이렇게 되어야 함)
+
+제목/설명 아래 선 유지
+
+컨테이너 내부 좌우 여백 생김
+
+이름 라벨 클릭하면 input 포커스됨
+
+라디오 3개 중 하나만 선택됨
+
+라벨 클릭으로 라디오 선택됨
+
+radio value가 서버로 전송 가능 상태
+
+CSS 전역 padding 제거되고, container에 padding 적용
+
+CSS 중복/미사용 정리
+-->

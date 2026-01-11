@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+    2. string_search_match
+    const str = 'I Love JavaScript';
+
+    - startsWith('i love') 실행
+    - false가 나오는 이유 주석
+    - true가 나오도록 코드 수정
+    
+    조건: toLowerCase() 반드시 사용
+    -->
+
+    <script>
+      const str = 'I Love JavaScript';
+      let result = str.toLowerCase().startsWith('i love');
+      console.log(result);
+
+      // 기억할 포인트
+      // 1. startsWith는 문자열의 시작(인덱스 0)부터 비교한다
+      // 2. 대소문자를 구분한다 (정규화 필요)
+      // 3. 한 글자라도 다르면 false를 반환한다
+      // 4. 반환값은 boolean(true / false)이다
+    </script>
+  </body>
+</html>
