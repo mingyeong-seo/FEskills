@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>if/else 입력 흐름 복습</title>
+  </head>
+  <body>
+    <!-- 파일명: ifElse_numberCheck.html -->
+    <!--
+문제:
+- prompt로 숫자 하나를 입력받는다
+- 숫자가 아닌 경우: "숫자를 입력하세요"
+- 0 이상 100 이하: "정상 범위"
+- 그 외: "범위를 벗어남"
+
+조건:
+- Number() 사용
+- Number.isNaN() 사용
+- if / else if / else 구조 사용
+-->
+    <script>
+      let num = prompt('숫자 하나 입력해라');
+      let number = Number(num);
+
+      // Number.isNaN()은 주어진 숫자가 NaN이면 true, 아니면 false
+      if (Number.isNaN(number)) {
+        console.log('숫자를 입력하세요.');
+      } else if (number >= 0 && number <= 100) {
+        console.log('정상 범위');
+      } else {
+        onsole.log('범위를 벗어남');
+      }
+
+      // 기억할 포인트
+      // 1. prompt 결과는 항상 문자열
+      // 2. Number()로 한 번만 변환
+      // 3. Number.isNaN()으로 숫자 검증
+      // 4. 변수 이름 절대 헷갈리지 말 것
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체 접근 + 반복</title>
+  </head>
+  <body>
+    <!-- 파일명: object_nestedLoop.html -->
+    <!--
+문제:
+- store 객체 안에 products 배열이 있다
+- 각 product는 name, prices 배열을 가진다
+- 모든 상품 이름과 가격을 순서대로 출력한다
+
+조건:
+- 객체 접근
+- 중첩 반복문 사용
+-->
+
+    <script>
+      const store = {
+        products: [
+          {
+            name: 'apple',
+            prices: [1000, 1200, 1500],
+          },
+          {
+            name: 'banana',
+            prices: [800, 900],
+          },
+        ],
+      };
+      for (let product of store.products) {
+        console.log(product.name);
+      }
+
+      for (let price of store.prices) {
+        console.log(product.price);
+      }
+
+      // 기억할 포인트
+      // 1. 객체 안에 배열이 들어갈 수 있다
+      // 2. 그 배열 안에 객체들이 들어간다
+      // 3. 그래서 접근은 store.products[i].name 형태다
+      // 4. 배열 안에 또 배열이 있으면 중첩 반복문이 필요하다
+    </script>
+  </body>
+</html>
