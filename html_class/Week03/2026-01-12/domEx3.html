@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <ul id="fr">
+      <li class="ani">라이언</li>
+      <li class="fru">어피치</li>
+      <li class="ani">프로도</li>
+      <li class="alien">
+        콘
+        <ul class="keyword">
+          <li>aaa</li>
+          <li>bbb</li>
+          <li>ccc</li>
+        </ul>
+      </li>
+    </ul>
+
+    <ul class="fr2">
+      <li><span>M</span></li>
+      <li><span>L</span></li>
+      <li><span>XL</span></li>
+    </ul>
+
+    <ul id="newrf"></ul>
+
+    <script>
+      // DOM 추가 5단계 사고
+      // 1. 요소 생성 (createElement)
+      // 2. 내용 준비 (textContent / createTextNode)
+      // 3. 요소에 내용 넣기(appendChild)
+      // 4. 대상 요소 찾기(querySelector)
+      // 5. 대상에 붙이기(append / appendChild)
+
+      let li = document.createElement("li");
+      const textNode = document.createTextNode("ddd");
+      li.appendChild(textNode);
+      let target = document.querySelector(".keyword");
+      target.appendChild(li);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>노드의 속성 알아내기</title>
+  </head>
+  <body>
+    <p id="demo"></p>
+    <p class="deomocls1">하이</p>
+    <p class="democis"></p>
+
+    <a name="html">HTML</a>
+    <a name="css">CSS</a>
+    <a name="js">JS</a>
+
+    <!-- 
+    하나의 문서내에는 하나 이상의 클래스를 적용해서 디자인하는 경우가 많음
+    이때 querySelector를 이용해서 다중의 노드를 찾은 후 접근하는 방법을 알아봄
+    -->
+    <h2>이건 해당 내용이다.</h2>
+    <h2>속성 노드 이용해보기</h2>
+    <img
+      id="img"
+      src="/html_class/imgs/manggom2.jpg"
+      width="160"
+      height="129"
+    />
+
+    <!-- html의 속성값을 변경해보자.. 이때 속성은 속성 객체 노드를 이용해서 값을 대입하는 형태를 사용함. -->
+
+    <!-- css 변경해보기 -->
+    <!-- node.css.속성 = value -->
+
+    <h1 class="h1">해당1 내용</h1>
+    <button onclick="document.getElementById('demo').style.color = 'red'">
+      버튼
+    </button>
+    <button
+      onclick="document.getElementById('img').style.visibility = 'hidden'"
+    >
+      이미지 숨기기 버튼
+    </button>
+    <script>
+      const cls1 = document.querySelector(".deomocls1");
+      cls1.style.color = "blue";
+
+      // 이미지 노드 get하기
+      document.getElementById("img").src = "../html_class/imgs/manggom.jpg";
+
+      console.log(document.title);
+      document.anchors.length;
+
+      const para = document.getElementById("demo"); // id가 demo인 노드를 문서에서 찾아서 리턴
+      // DOM 속성인 innerHTML 을 이용해서 p태그에 값 set
+      para.innerHTML = "Hi!";
+
+      const ps = document.getElementsByTagName("p");
+      console.log(ps);
+
+      /* //querySelector('클래스 ID 등..')을 이용해서 노드 찾기
+      const clsNode = document.querySelector(".democis");
+      clsNode.innerHTML = "쿼리 셀렉터를 이용한 노드 찾기"; */
+
+      // 셀렉터들은 배열로 리턴이 된다.
+      const nodes = document.querySelectorAll(".democis");
+      nodes[1].innerHTML = "두번째 node의 text set";
+    </script>
+  </body>
+</html>

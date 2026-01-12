@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input {
+        display: block;
+        background-color: powderblue;
+        width: 200px;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+        const css = document.querySelector('.css');
+        console.log(css);
+        css.previousSibling;
+        css.nextSibling;
+        // text node가 아닌 li 요소 자체를 반환하도록 호출
+        css.previousElementSibling;
+        <li class=​"html">​…​</li>​
+        css.nextElementSibling
+        <li class=​"script">​…​</li>​
+        const lang = document.getElementById('lang');
+        console.log(lang.childNodes);
+        // 이번엔 text 노드가 아닌 순수 요소로만 구성된 자식 노드 추출  
+        lang.children;
+        lang.firstChild;
+        lang.firstChild.textContent = 'ㅎㅎㅎ';
+        lang.lastChild;
+        lang.firstElementChild;
+        <li class=​"html">​…​</li>​
+        lang.firstElementChild;
+        <li class=​"html">​…​</li>​
+        lang.hasChildNodes();
+
+
+        const input = document.querySelector('input[type=text]');
+        if (!input.hasAttribute('value')) {
+        input.setAttribute('value', 'hello world');
+        }
+        input.getAttribute('value');
+        input.removeAttribute('value');
+
+        const input = document.querySelector('input');
+        input.style['font-size'] = '3rem';
+
+        let element = document.createElement('div'); //div 생성
+        element.outerHTML;
+        // class 추가해보기
+        element.className = 'foo';
+        element.outerHTML;
+        element.classList.add('foo');
+        element.outerHtml;
+        element.classList.remove('bar');
+        element.outerHTML;
+        element.classList.remove('bar');
+
+        ~~~
+
+        // ul 객체를 ul이라는 변수에 할당하세요.
+        let ul = document.querySelector('ul');
+        ul.textContent;
+        const one = document.getElementById('one');
+
+        / ul li  뒤에 새 li 추가 
+        let li = document.createElement('li');
+        let textNode = document.createTextNode('jason');
+        li.appendChild(textNode);
+        let target = document.getElementById('fr');
+        target.appendChild(li);
+
+        / ul안 ul안에 li추가
+
+
+
+
+
+
+
+
+-->
+
+    <!-- DOM 요소 탐색: 다음과 같은 속성을 이용해서 DOM Tree를 탐색할 수 있다. 
+     속성이 많으니 대표적인 것 몇 개만 나열함.
+     parentNode: 부모 노드 탐색
+     childNodes: 하위의 모든 노드 객체를 NodeList로 리턴함.
+     children: 하위 모든 노드를 HTMLCollection으로 리턴함.
+     firstChild: 직계 자식중 첫번째 노드 리턴
+     lastChild: 직계중 마지막 노드 리턴
+     hasChildNode(): 자식 노드 존재를 boolean으로 리턴함
+     children.length(): 자식 노드의 수 리턴함.
+     previousSibling: 같은 부모를 가진 노드 중 이전 노드 반환
+     nextSibling: 같은 부모를 가진 노드 중 다음 요소 리턴 
+     
+     // DOM 요소의 속성을 조정하는 메서드 알아보기
+     hasAttribute(attr): 지정된 속성을 가지고 있는지 검사
+     getAttribute(attr): 지정된 속성을 get
+     setAttribute(attr, value): 지정된 속성에 value 값을 세팅
+     removeAttribute(attr): 지정된 속성 삭제
+     .attributes: 속성들을 배열로 리턴
+
+     // 속성에 대한 변경이나 값을 추출하도록 하는 속성 정리 
+    element.id: id 속성의 값을 get or set 함.. 만약 id가 존재하지 않는다면, 속성을 생성하고 값을 설정
+    element.style.property: css 속성의 값을 get or set
+    element.attribute: 해당 요소의 속성을 나타냄
+
+    // 노드 조회.. HTML 태그로 찾고, 특정 노드의 하위 노드(text node) 등을 찾는 기능 
+    nodeName: 노드의 이름을 문자열로 리턴
+    요소노드는 Tab 이름의 영댐ㄴ자로 리턴, Text node는 #text로, 문서는 #document로 리턴함
+    nodeValue: 특정 노드에 첫번째 하위 텍스트 노드 값(text)의 set/get 하는 기능
+    nodeType: 특정 노드의 타입 조회,, 수정이 불가능함
+    순서는 아래와 같음 
+    1. 요소 노드, 2. 속성 노드, 3. 텍스트 노드, 4. 주석 노드, 5. 문서 노드
+
+    node에 접근해서 속성을 이용한 write..
+    
+    innerHTML: 태그 사이의 값을 get or set 하는 속성
+    outerHTML: 전체 태그 값을 가져옴..
+    document.write('값'): 값으로 전달된 내용을 문서에 씀 
+    textContent: 요소의 text 컨텐트에 내용을 쓰는 속성
+
+    // DOM 추가 삭제
+    createElement(Tag Name)을 사용해서 동적으로 요소 노드를 생성할 수 있다.
+    내용을 담고 있는 textNode를 createTextNode()를 이용해서 생성하고 내용을 추가함. 
+    appendChild()등의 메서드를 이용해서 TextNode를 생성한 요소 노드의 자식으로 추가시킨다.
+
+    createElement(tagName)ㄴ
+    createTextNode(text)
+    appendChild(node): node를 마지막 자식 노드로 dom 트리에 추가
+    removeChild(node): node 삭제
+    remove(): 호출된 메서드의 노드 삭젠
+
+     -->
+
+    <div id="test">DIV</div>
+
+    <ul>
+      <li id="one" class="red">Seoul</li>
+      <li id="two" class="red">London</li>
+      <li id="three" class="red">NY</li>
+      <li id="four">Tokyo</li>
+    </ul>
+
+    <h2>nodeName 속성</h2>
+    <p id="document"></p>
+    <p id="html"></p>
+    <h2 id="heading">nodevalue 속성</h2>
+    <p id="text1">텍스트</p>
+
+    <form>
+      id: <input type="text" value="값" /> <br />
+      Pw: <input type="password" name="input" />
+    </form>
+
+    <!-- id: <input type="text" /> -->
+
+    <ul id="lang">
+      <li class="html">html</li>
+      <li class="css">css</li>
+      <li class="script">script</li>
+    </ul>
+
+    <script></script>
+  </body>
+</html>
