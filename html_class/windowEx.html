@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a
+      href="#"
+      id="loginbtn"
+      onclick="newLoginWindow()"
+      style="text-decoration: none"
+      >로그인</a
+    >
+
+    <button onclick="home();">홈으로 가기</button>
+
+    <script>
+      function home() {
+        location.href = "history.html";
+
+        // location.host
+        // 루프백 주소: 인터넷이 연결되지 않아도, 모든 컴퓨터에 자동으로 생성되는 가상 ip 이다.
+        // local host라고도 한다.
+      }
+      function newLoginWindow() {
+        const width = 500;
+        const height = 800;
+        const left = screen.width / 2 - width / 2;
+        const top = screen.height / 2 - height / 2;
+
+        window.open(
+          "login.html",
+          "newwin",
+          `width=${width},height=${height},left=${left},top=${top}`
+        ); // window.open(열 페이지(url), 창이름, 옵션 문자열(크기+위치정보)), 옵션은 하나의 문자열이어야 한다.
+      }
+    </script>
+  </body>
+</html>

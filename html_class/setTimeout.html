@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="delayMsg()">3초뒤 메세지 표시</button>
+    <button onclick="clearMsg()">메세지 표시전에 취소 하기</button>
+
+    <div id="output" style="padding: 0.5rem 0"></div>
+
+    <script>
+      // timeout id 생성
+      let tId;
+
+      // div에 전달된 값을 input 시킬 함수 정의
+      function inputDiv(msg) {
+        document.querySelector("#output").textContent = "msg";
+      }
+
+      // timeout 실행 함수 정의
+      function delayMsg() {
+        inputDiv("");
+        tId = setTimeout(inputDiv, 3000, "3초는 생각 보다 길어요"); // 3번째는 파라미터 메세지임
+      }
+
+      function clearMsg() {
+        clearTimeout(tId);
+      }
+
+      /*  // 아래에 각각의 함수를 정의하고 이벤트가 핸들링 되도록 만들기
+
+      let intervalID = null;
+
+      function delayMsg() {
+        if (!intervalID) {
+          intervalID = setInterval(displayMsg, 3000);
+        }
+      }
+
+      function clearMsg() {
+        // interval을 clear 시킨다
+        clearInterval(intervalID);
+        intervalID = null;
+      }
+
+      function displayMsg() {
+        const element = document.getElementById("div");
+        element.value = "메세지 나타남";
+        element.appendChild(textNode);
+        let target = document.querySelector("#output");
+        target.appendChild(element);
+      }
+
+      const button1 = document.querySelector("button");
+      const button2 = document.querySelector("button");
+
+      button.addEventListener("click", delayMsg);
+      button.addEventListener("click", clearMsg); */
+    </script>
+  </body>
+</html>

@@ -8,7 +8,7 @@
   </head>
   <body>
     <!-- onsubmit은 form에, false면 리턴이 되지 않는다.test.jsp  -->
-    <form onsubmit="return myFunction();" action="test.jsp">
+    <form onsubmit="myFunction();" action="test.jsp" name="myform">
       <!-- submit 이벤트시 핸들러를 직접 호출함 -->
       암호:
       <input type="password" name="password" id="pw" />
@@ -22,7 +22,12 @@
       document.getElementById("mybtn").addEventListener("click", myFunction); // 주의..
       // 정의된 함수를 호출할 때에는 반드시 함수 객체명만 사용해야함!!
       function myFunction() {
-        let pwValue = document.getElementById("pw").value;
+        // alert("호출됨");
+        evet.preventDefault();
+        documet.forms["myform"].submit();
+        // false
+
+        /* et pwValue = document.getElementById("pw").value;
         let emailValue = document.getElementById("email").value;
 
         // 정규화식 이용으로 아이디, 이메일 조건 충족 여부 확인
@@ -30,11 +35,10 @@
         let emailOkay = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue);
 
         if (!pwOkay || !emailOkay) {
-          alert(`아이디 ${pwOkay}  비번 ${emailOkay}`);
-          false;
+          documet.forms["myform"].reset();
         } else {
           alert("pw, email 조건 부합");
-        }
+        } */
       }
     </script>
   </body>
