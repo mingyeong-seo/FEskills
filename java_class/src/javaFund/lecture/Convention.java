@@ -1,4 +1,4 @@
-package javaFund;
+package javaFund.lecture;
 // 이건 라인 주석 입니다. 컴파일시엔 모두 무시됩니다.
 
 /*

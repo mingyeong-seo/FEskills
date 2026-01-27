@@ -1,4 +1,4 @@
-package javaFund;
+package javaFund.lecture;
 
 public class MyJava {
 	public static void main(String[] args) {

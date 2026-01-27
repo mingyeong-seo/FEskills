@@ -1,4 +1,4 @@
-package javaFund;
+package javaFund.lecture;
 
 import javax.swing.JOptionPane;
 

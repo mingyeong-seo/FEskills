@@ -1,4 +1,4 @@
-package javaFund;
+package javaFund.lecture;
 import java.util.Scanner;
 
 public class Score {

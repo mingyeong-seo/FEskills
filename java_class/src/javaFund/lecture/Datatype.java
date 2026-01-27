@@ -1,4 +1,4 @@
-package javaFund;
+package javaFund.lecture;
 /*
  * 자바의 데이터 타입: 크게 Ptype(기본 자료형), Rtype(객체형)으로 나뉩니다.
  * 기본 자료형은 다시 Data의 성격에 따라서 아래처럼 구분 됩니다.
