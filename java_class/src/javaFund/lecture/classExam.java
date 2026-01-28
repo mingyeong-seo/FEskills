@@ -1,11 +1,12 @@
 package javaFund.lecture;
+
 /*
  * 자바 클래스: 클래스란 실제 어플리케이션이 수행할 때 사용되는 객체의 설계도이다.
  * 이 설계도에 우리가 목적하는 업무를 정의하고, 이를 객체화시켜서 수행하도록 하는데 목적이 있다.
  * 
  * 때문에 객체 지향에서는 클래스의 설계가 무척 중요한데, 클래스의 구조에 대해 먼저 알아보자.
  * 
- * 클래스는 크게 3형식의 구조로 되어있다
+ * 클래스는 크게 3형식의 구조로 되어있다. 
  * 
  * 1. 필드: 멤머 필드라고도 하며, 객체의 상태를 나타내는 변수이다.
  * 이 말은, 이 필드를 가지고 있는 객체의 상태가 어떤 것인지를 이 변수의 값에 따라서 확인할 수 있다는 뜻이다.
@@ -28,105 +29,86 @@ package javaFund.lecture;
 
 class FullStackStudent {
 	/*
-	 * 접근 제어자(Access Modifier): private < default < protected < public 중 하나로 클래스에는
-	 * defaul와 public 만, 나머지는 필드, 생성자, 메서드에는 위 중 하나를 선언해서 클래스 내·외부에서 접근하는 것을 제어 할 수
-	 * 있다.
+	 * 접근 제어자(Access Modifier): private(가장 좁음) / default / protected / public(가장 넓음)
+	 * 이 중 클래스에는 default와 public만 사용할 수 있고,
+	 * 필드, 생성자, 메서드에는 위 중 하나를 선언해서 클래스 내·외부에서 접근하는 것을 제어 할 수 있다.
 	 * 
-	 * 이중 가장 강력한 접근 제어는 private으로 오직 자신 클래스에서만 접근 가능하다. 이를 사용하는 가장 큰 목적은 선언된 구문의 접근을
-	 * 오직 자신에게만 국한되게 할 때 사용된다 외부에서 접근시엔 컴파일 에러를 유발한다. 이렇게 하는 것을 캡슐화라고 한다.
+	 * 이중 가장 강력한 접근 제어는 private으로 오직 자신 클래스에서만 접근 가능하다.
+	 * 이를 사용하는 가장 큰 목적은 선언된 구문의 접근을 오직 자신에게만 국한되게 할 때 사용된다.
+	 * 외부에서 접근시엔 컴파일 에러를 유발한다. 이렇게 하는 것을 캡슐화라고 한다.
 	 */
 	private String name; // 객체가 가지고 잇는 필드들이다~해서 멤버필드
 	private int age;
 	private char grade;
-	// 생성자: 클래스를 바탕으로 인스턴스를 생성해주는 실제 코드
-	// 생성자의 문법으로는 [접근제어자] 클래스명([파라미터]){생성자 코드} 형태이다.
-	// 기본 생성자: 파라미터없고, 필드의 값을 default로 초기화 해주는 생성자를 말함.
-	// 모든 클래스를 정의한 후 컴파일하면, 컴파일러가 자동으로 생성해서 클래스에 넣어줌,
-	// 단!!! 프로그래머가 정의한 생성자가 하나도 없을 경우에만 넣어줌,, 만약 하나라도 프로그래머가
-	// 직접 정의하면 기본 생성자를 넣어주지 않음.. 꼭 기억하기
 
 	public FullStackStudent() {
 		this.name = null;
 		this.age = 0;
 		this.grade = ' ';
 	}
-	// 생성자 오버로딩: 같은 이름의 생성자를 정의하고, 파라미터의 순서, 갯수, 타입만 변경해서 정의하면 
-	// 이를 호출할 때 VM이 동적으로 해당되는 생성자 또는 메서드를 호출해서 실행하도록 하는 것
-	// 이름만 초기화 하는 생성자 정의
+
 	public FullStackStudent(String name) {
 		this();
 		this.name = name;
 	}
+
 	public FullStackStudent(String name, int age) {
 		this(name);
 		this.age = age;
 	}
-	
+
 	public FullStackStudent(String name, int age, char grade) {
 		this(name, age);
 		this.grade = grade;
 	}
-	
-	// 이름을 리턴하는 메서드 정의
-	// 메서드 구문은 다음과 같음
-	// [접근 제어자] [static] return type methodName([파라미터]){구문}
-	
+
 	public String getName() {
 		return this.name;
 	}
-	
+
 	public String getName(String id) {
 		return this.name;
 	}
+
 	public int getAge() {
 		return age;
 	}
+
 	public void setAge(int age) {
 		this.age = age;
 	}
+
 	public char getGrade() {
 		return grade;
 	}
+
 	public void setGrade(char grade) {
 		this.grade = grade;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-
 }
 
 public class classExam {
 	private double r1;
 	private double r2;
-	
+
 	public classExam(double r1, double r2) {
 		this.r1 = r1;
 		this.r2 = r2;
 	}
-	
-	// 면적을 구하도록 하는 메서드를 정의한다. 
+
+	// 면적을 구하도록 하는 메서드를 정의한다.
 	public double getArea() {
 		return r1 * r2 * InitExam.getPI();
 	}
-	
+
 	public static void main(String[] args) {
-		// 학생 클래스를 바탕으로 나(me) 객체를 생성한다.
-		// 클래스의 객체를 생성할 때 키워드는 new이다.
-		// new 다음에 클래스의 생성자를 호출하면, JAVA VM은
-		// 프로그램 실행시에 동적으로 heap 메모리 영역에 객체를 생성하고
-		// 이를 참조하는(Reference)참조값을 리턴해준다.
-
 		FullStackStudent hj = new FullStackStudent();
-		FullStackStudent me = new FullStackStudent("민경");// 생성자를 호출해서 인스턴스를 발생시키는
-		// 위 과정을 instantiaion(클래스의 인스턴스를 생성한다)이라고 한다.
-		System.out.println(me.getName()); // me 출력시 해시코드가 나온다는건 인스턴스가 만들어졌다
+		FullStackStudent me = new FullStackStudent("민경");
+		System.out.println(me.getName());
 		System.out.println(hj.getName());
-
-		// 속성을 직접 접근해서 속성의 값을 대입한다.
-		// me.name = "서민경";
-		// System.out.println(me.name);
-
 	}
-
 }
