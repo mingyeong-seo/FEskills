@@ -2,7 +2,7 @@ package javaFund.lecture;
 
 import java.util.Scanner;
 
-public class ScoreAnswer {
+public class Score2 {
 
 	public static void main(String[] args) {
 		String[] subject = new String[] { "국어", "수학", "영어" };
