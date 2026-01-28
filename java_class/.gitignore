@@ -5,3 +5,8 @@
 
 # Java build output
 /bin/
+
+# Eclipse
+.classpath
+.project
+.settings/
