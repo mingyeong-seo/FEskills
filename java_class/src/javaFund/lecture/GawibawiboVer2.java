@@ -103,7 +103,7 @@ public class GawibawiboVer2 {
 		game.inputSomething(); // 1. 입력
 		game.isWin(); // 2. 승패 판단
 
-		// 3. 출력
+		// 3. 출력하기
 		System.out.println("사용자: " + game.getUserVal());
 		System.out.println("컴퓨터: " + game.getComVal());
 		System.out.println("승: " + game.getWin());
