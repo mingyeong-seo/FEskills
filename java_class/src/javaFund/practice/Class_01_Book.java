@@ -1,4 +1,4 @@
-package Class_01_Book;
+package javaFund.practice;
 
 class Book {
     private String title;
@@ -12,31 +12,29 @@ class Book {
     }
 
     public Book(String title) {
-        this();              
+        this();
         this.title = title;
     }
 
     public Book(String title, int price) {
-        this(title);         
+        this(title);
         this.price = price;
     }
 
     public Book(String title, int price, String author) {
-        this(title, price);  
+        this(title, price);
         this.author = author;
     }
 
-    
     public String getTitle() { return this.title; }
     public int getPrice() { return this.price; }
     public String getAuthor() { return this.author; }
 
-    
     public void setPrice(int price) { this.price = price; }
     public void setAuthor(String author) { this.author = author; }
     public void setTitle(String title) { this.title = title; }
 
-    
+    @Override
     public String toString() {
         return "Book{title='" + title + "', price=" + price + ", author='" + author + "'}";
     }
