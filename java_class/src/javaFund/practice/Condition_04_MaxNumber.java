@@ -24,32 +24,31 @@ public class Condition_04_MaxNumber {
 		Scanner sc = new Scanner(System.in);
 
 		while (!isTwoNumber) {
-		    System.out.print("두 정수를 입력하세요 (공백으로 구분): ");
+			System.out.print("두 정수를 입력하세요 (공백으로 구분): ");
 
-		    if (!sc.hasNextInt()) {
-		        sc.next();
-		        System.out.println("첫 번째 값은 정수여야 합니다.");
-		        continue;
-		    }
-		    num1 = sc.nextInt();
+			if (!sc.hasNextInt()) {
+				sc.next();
+				System.out.println("첫 번째 값은 정수여야 합니다.");
+				continue;
+			}
+			num1 = sc.nextInt();
 
-		    if (!sc.hasNextInt()) {
-		        sc.next();
-		        System.out.println("두 번째 값은 정수여야 합니다.");
-		        continue;
-		    }
-		    num2 = sc.nextInt();
+			if (!sc.hasNextInt()) {
+				sc.next();
+				System.out.println("두 번째 값은 정수여야 합니다.");
+				continue;
+			}
+			num2 = sc.nextInt();
 
-		    isTwoNumber = true;
+			isTwoNumber = true;
 		}
-		
-		if(num1 > num2) {
-			System.out.println(num1+"이 더 큰 수 입니다.");
-		}else if (num1 == num2) {
+
+		if (num1 > num2) {
+			System.out.println(num1 + "이 더 큰 수 입니다.");
+		} else if (num1 == num2) {
 			System.out.println("같은 수 입니다");
-		}
-		else {
-			System.out.println(num2+"가 더 큰 수 입니다.");
+		} else {
+			System.out.println(num2 + "가 더 큰 수 입니다.");
 		}
 		sc.close();
 	}

@@ -1,4 +1,4 @@
-package javaFund.practice;
+package javaFund.practice.class02;
 /*
  * [문제 5-3]
  * main 메서드를 가진 테스트 클래스
@@ -10,3 +10,16 @@ package javaFund.practice;
  * 
  * ※ instanceof 사용 금지
  */
+
+public class Zoo {
+	public static void main(String[] args) {
+		Animal dog = new Dog();
+		Animal bird = new Bird();
+		Fly fly = new Bird();
+
+		dog.sound();
+		bird.sound();
+		fly.fly();
+
+	}
+}

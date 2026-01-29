@@ -1,4 +1,4 @@
-package javaFund.practice;
+package javaFund.practice.class02;
 /*
  * [문제 3]
  * 동물(Animal)을 표현하는 추상 클래스를 만들어보자.
@@ -11,3 +11,18 @@ package javaFund.practice;
  * 4. info() 메서드를 만들어
  *    "이 동물은 xxx 입니다"를 출력한다.
  */
+
+abstract class Animal {
+	String type;
+
+	public Animal(String type) {
+		this.type = type;
+	}
+
+	abstract void sound();
+
+	void info() {
+		System.out.println("이 동물은 " + type + " 입니다.");
+	}
+
+}

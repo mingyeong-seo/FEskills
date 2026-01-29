@@ -21,17 +21,17 @@ public class Condition_02_Grade {
 		// 출력 결과: "학점은 A 입니다.", "학점은 B 입니다.", "학점은 C 입니다.", "학점은 D 입니다.", "학점은 F 입니다."
 
 		// TODO: 문제 2 코드 작성
-		
+
 		boolean isScore = false;
 		int score = 0;
 		char grade = ' ';
 		Scanner sc = new Scanner(System.in);
-		
-		while(!isScore) {
+
+		while (!isScore) {
 			System.out.print("국어 점수 입력: ");
-			if(sc.hasNextInt()) {
+			if (sc.hasNextInt()) {
 				score = sc.nextInt();
-				if(score < 0 || score > 100) {
+				if (score < 0 || score > 100) {
 					continue;
 				}
 				isScore = true;
@@ -40,17 +40,26 @@ public class Condition_02_Grade {
 				continue;
 			}
 		}
-		
-		switch(score/10) {
+
+		switch (score / 10) {
 		case 10:
-		case 9: grade = 'A'; break;
-		case 8: grade = 'B'; break;
-		case 7: grade = 'C'; break;
-		case 6: grade = 'D'; break;
-		default: grade = 'F';
+		case 9:
+			grade = 'A';
+			break;
+		case 8:
+			grade = 'B';
+			break;
+		case 7:
+			grade = 'C';
+			break;
+		case 6:
+			grade = 'D';
+			break;
+		default:
+			grade = 'F';
 		}
-		
-		System.out.println("학점은 "+grade+" 입니다.");
+
+		System.out.println("학점은 " + grade + " 입니다.");
 		sc.close();
 	}
 
