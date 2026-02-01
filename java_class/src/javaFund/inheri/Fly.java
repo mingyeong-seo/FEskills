@@ -1,4 +1,4 @@
-package inheri;
+package javaFund.inheri;
 
 /*
  * 인터페이스: 인터페이스는 다음 상속을 목적으로 하는 주 개념이다. 인터페이스간에는 갯수와 상관없이 상속이 가능하고

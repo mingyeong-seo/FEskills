@@ -1,4 +1,5 @@
-package inheri;
+package javaFund.inheri;
+
 
 public interface BirdInter extends Fly, BirdVelocity {
 	default void birdFly() {

@@ -1,4 +1,4 @@
-package inheri;
+package javaFund.inheri;
 
 public class Duck extends Animal implements Fly {
 	public String name;

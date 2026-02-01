@@ -1,4 +1,4 @@
-package inheri;
+package javaFund.inheri;
 
 /*
  * 동물에 관련된 Super 클래스

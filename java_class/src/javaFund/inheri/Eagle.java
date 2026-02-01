@@ -1,4 +1,4 @@
-package inheri;
+package javaFund.inheri;
 
 public class Eagle extends Animal implements BirdInter {
 	int speed = EAGLE_VELOCITY;

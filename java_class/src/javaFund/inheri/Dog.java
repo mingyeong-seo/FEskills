@@ -1,4 +1,4 @@
-package inheri;
+package javaFund.inheri;
 
 public class Dog extends Animal {
 	public String name;

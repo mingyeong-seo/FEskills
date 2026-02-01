@@ -1,4 +1,4 @@
-package inheri;
+package javaFund.inheri;
 
 /*
  * 자바의 클래스간의 접속 : 클래스간에는 상속을 통해 기능과 속성을 자식 클래스가 사용할 수 있도록 할 수 있다.
