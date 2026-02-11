@@ -25,3 +25,5 @@ WHERE NOT EXISTS (
     FROM practice_users
     WHERE email = 'test@gmail.com'
 );
+
+COMMIT;

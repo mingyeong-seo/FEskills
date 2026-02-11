@@ -23,3 +23,5 @@ OR role = 'MIGRATED';
 SELECT name,role
 FROM practice_users
 WHERE role IN ('ADMIN', 'MIGRATED');
+
+COMMIT;
