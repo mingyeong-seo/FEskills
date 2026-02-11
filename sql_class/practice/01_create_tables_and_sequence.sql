@@ -20,3 +20,31 @@ INCREMENT BY 1
 NOCYCLE;
 
 COMMIT;
+
+INSERT INTO practice_users (USER_ID, NAME, EMAIL, ROLE)
+VALUES (user_seq.NEXTVAL, '김하늘', 'sky@gmail.com', 'USER');
+
+INSERT INTO practice_users (USER_ID, NAME, EMAIL, ROLE)
+VALUES (user_seq.NEXTVAL, '이수진', NULL, 'USER');
+
+INSERT INTO practice_users (USER_ID, NAME, EMAIL, ROLE)
+VALUES (user_seq.NEXTVAL, '박준호', 'junho@gmail.com', 'ADMIN');
+
+INSERT INTO practice_users (USER_ID, NAME, EMAIL, ROLE)
+VALUES (user_seq.NEXTVAL, '최민아', NULL, 'ADMIN');
+
+INSERT INTO practice_users (USER_ID, NAME, EMAIL, ROLE)
+VALUES (user_seq.NEXTVAL, '정우성', 'woo@gmail.com', 'USER');
+
+INSERT INTO practice_users (USER_ID, NAME, EMAIL, ROLE)
+VALUES (user_seq.NEXTVAL, '한지민', 'han@gmail.com', 'MIGRATED');
+
+INSERT INTO practice_users (USER_ID, NAME, EMAIL, ROLE)
+VALUES (user_seq.NEXTVAL, '오지훈', NULL, 'USER');
+
+COMMIT;
+
+
+SELECT user_id, name, email, role
+FROM practice_users
+ORDER BY user_id;
