@@ -9,3 +9,4 @@ CREATE TABLE MEMBER(
 SELECT * FROM MEMBER;
 
 Select id,pass,name,reg_date from member where id = 'fs' and pass = 'hello';
+
