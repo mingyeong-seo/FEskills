@@ -9,7 +9,13 @@ commit;
 
 select * from board;
 
-select m.*, b.*
-    from member m innner join board b
+select m.name, b.*
+    from member m inner join board b
 on m.id = b.id
 where b.num = 1;
+
+UPDATE board
+SET visitcount = 0
+WHERE visitcount IS NULL;
+
+COMMIT;
