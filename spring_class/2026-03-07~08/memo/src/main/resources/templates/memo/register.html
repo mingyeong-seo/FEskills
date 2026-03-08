@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>등록 페이지</title>
+</head>
+<body>
+<h2>메모 등록</h2>
+<form action="/memo/register" method="post">
+	<input type="text" name="memoText" placeholder="메모 내용을 입력해 주세요">
+	<button type="submit">등록</button>
+</form>
+
+<a th:href=@{/memo/list}>목록으로</a>
+</body>
+</html>

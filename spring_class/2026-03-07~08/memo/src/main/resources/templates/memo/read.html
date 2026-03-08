@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>상세 조회 페이지</title>
+</head>
+<body>
+<h2>상세 조회</h2>
+	<p>번호: <span th:text="${memo.id}"></span></p>
+	<p>내용: <span th:text="${memo.memoText}"></span></p>
+	
+	<a th:href="@{/memo/list}">목록으로</a>
+	
+
+</body>
+</html>
