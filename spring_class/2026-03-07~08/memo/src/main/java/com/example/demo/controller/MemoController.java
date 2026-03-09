@@ -61,4 +61,25 @@ public class MemoController {
 		memoRepository.deleteById(id);
 		return "redirect:/memo/list";
 	}
+
+	// @GetMapping은 URL path 매핑용이지 쿼리스트링까지 포함해서 쓰는게 아니다
+	// ?id=1을 매핑 문자열 안에서 처리하지 않고, 별도로 request parameter 로 처리한다.
+			
+	// 수정
+	@GetMapping("/memo/modify")
+	public String modify(@RequestParam("id") Long id, Model model) {
+		Optional<Memo> result = memoRepository.findById(id);
+		
+		result.ifPresent(memo -> model.addAttribute("memo", memo));
+		
+		return "memo/modify";
+	}
+	
+	// 수정 처리
+	@PostMapping("/memo/modify") 
+	public String modifyPost(Memo memo) {
+		memoRepository.save(memo);
+		
+		return "redirect:/memo/list";
+	}
 }
