@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:replace="~{/layout/basic :: setContent(~{this::content} )}">
+
+	<th:block th:fragment="content">
+
+		<h1 class="mt-4">Board Read Page</h1>
+
+		<div class="form-group">
+			<label>Bno</label> <input type="text" class="form-control" name="gno"
+				th:value="${dto.bno}" readonly>
+		</div>
+
+		<div class="form-group">
+			<label>Title</label> <input type="text" class="form-control"
+				name="title" th:value="${dto.title}" readonly>
+		</div>
+		<div class="form-group">
+			<label>Content</label>
+			<textarea class="form-control" rows="5" name="content" readonly>[[${dto.content}]]</textarea>
+		</div>
+		<div class="form-group">
+			<label>Writer</label> <input type="text" class="form-control"
+				name="writer" th:value="${dto.writerName}" readonly>
+		</div>
+		<div class="form-group">
+			<label>RegDate</label> <input type="text" class="form-control"
+				name="regDate"
+				th:value="${#temporals.format(dto.regDate, 'yyyy/MM/dd HH:mm:ss')}"
+				readonly>
+		</div>
+		<div class="form-group">
+			<label>ModDate</label> <input type="text" class="form-control"
+				name="modDate"
+				th:value="${#temporals.format(dto.modDate, 'yyyy/MM/dd HH:mm:ss')}"
+				readonly>
+		</div>
+
+		<a
+			th:href="@{/board/modify(bno = ${dto.bno}, page=${requestDTO.page}, type=${requestDTO.type}, keyword =${requestDTO.keyword})}">
+			<button type="button" class="btn btn-primary">Modify</button>
+		</a>
+
+		<a
+			th:href="@{/board/list(page=${requestDTO.page} , type=${requestDTO.type}, keyword =${requestDTO.keyword})}">
+			<button type="button" class="btn btn-info">List</button>
+		</a>
+
+		<div>
+			<div class="mt-4">
+				<h5>
+					<span class="badge badge-info addReply">Add Reply</span>
+				</h5>
+				<h5>
+					<span class="badge badge-secondary replyCount">Reply Count
+						[[${dto.replyCount}]]</span>
+				</h5>
+			</div>
+		</div>
+
+		<div class="list-group replyList"></div>
+		<div class="modal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Modal title</h5>
+
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<input class="form-control" type="text" name="replyText"
+								placeholder="Reply Text...">
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="text" name="replyer"
+								placeholder="Replyer"> <input type="hidden" name="rno">
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger replyRemove">Remove</button>
+						<button type="button" class="btn btn-warning replyModify">Modify</button>
+						<button type="button" class="btn btn-primary replySave">Save</button>
+						<button type="button" class="btn btn-outline-secondary replyClose"
+							data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script th:inline="javascript">
+	//jquery라는 자바스크립트 라이브러리를 이용한다
+	$(document).ready(function(){
+		var bno = [[${dto.bno}]]; // 글 번호 세팅
+		// 동적 변경할 클래스 선택
+		var listGroup = $(".replyList");
+		
+		// 이벤트 등록
+		$(".replyCount").click(function(){
+			// 클릭 되는 순간, 서버에 비동기적으로 댓글의 정보를 요청한다
+			// 이때 사용되는 대표적 비동기 통신 객체가 ajax라는 것이더ㅏ
+			// ajax는 브라우저가 서버의 특징 URL에 요청을 보내고, 결과를 받아들이는 
+			// 대표적 통신 객체이다
+			// ajax 외에도 fetch 등 다른 이름의 API 가 존재하는데, 사용법만 틀리고
+			// 기능은 대동소이한다.
+			$.getJSON('/replies/board/'+bno,function(arr){
+				console.log(arr);
+			}) // End of getJSON
+		}) // End of Click Evt
+		
+		function formatTime(str){
+            var date = new Date(str);
+
+            return date.getFullYear() + '/' +
+                (date.getMonth() + 1) + '/' +
+                date.getDate() + ' ' +
+                date.getHours() + ':' +
+                date.getMinutes();
+        }
+		
+		function loadJSONData(){
+			$.getJSON('/replies/board/'+bno,function(arr){
+				console.log(arr);
+				
+				var str = "";
+				$.each(arr, function(idx, reply) {
+					console.log(reply);
+					
+					var modified = "";
+					  // 수정 여부 확인
+		            if(new Date(reply.regDate).getTime() !== new Date(reply.modDate).getTime()){
+		                modified = " (수정됨)";
+		            }
+
+					str += '    <div class="card-body" data-rno="'+reply.rno+'" data-text="'+reply.text+'" data-replyer="'+reply.replyer+'"><b>'+reply.rno +'</b>';
+                    str += '    <h5 class="card-title">'+reply.text+'</h5>';
+                    str += '    <h6 class="card-subtitle mb-2 text-muted">'+reply.replyer+'</h6>';
+                    str += '    <p class="card-text">'+ formatTime(reply.modDate) + modified +'</p>';
+                    str += '    </div>'; 
+				})
+				listGroup.html(str);
+			});
+		}
+		$(".replyCount").click(function(){
+			loadJSONData();
+		});
+		
+		var modal = $('.modal');
+		// 댓글 추가 클릭 시 모달창 띄우는 이벤트 처리함
+		$('.addReply').click(function(){
+			modal.modal('show');
+			
+			// 댓글 입력하는 필드 초기화
+			$('input[name="replyText"]').val('');
+			$('input[name="replyer"]').val('');
+			
+			$(".modal-footer .btn").hide();
+			$(".replySave, .replyClose").show();
+		}); // End of modl
+		
+		
+		$('.replySave').click(function() {
+			 // alert(replyText);
+			 var reply = {
+					 bno: bno,
+					 text: $('input[name="replyText"]').val(),
+			 		 replyer: $('input[name="replyer"]').val(),
+			 }
+			 // alert(reply.text);
+			 
+			 // 서버로 비동기 통신을 이용해서 데이터를 전송한다
+			 $.ajax({
+				 url: '/replies/',
+				 method: 'post',
+				 data:JSON.stringify(reply),
+				 contentType: 'application/json; charset=utf-8', 
+				 dataType: 'json',
+				 success: function(data){
+					 console.log(data);
+					 
+					 var newRno = parseInt(data);
+					 alert(newRno + "번 댓글이 등록됨");
+					 modal.modal('hide');
+					 loadJSONData();
+				 }
+			 }); //End of ajax send
+			 
+		});//End of save
+		
+		// 댓글 내용 클릭 시 모달 뜨고 삭제, 수정 버튼 표시
+		$(".replyList").on("click", ".card-body", function(){
+		    var rno = $(this).data("rno");
+
+		    $('input[name="replyText"]').val($(this).find('.card-title').html());
+		    $('input[name="replyer"]').val($(this).find('.card-subtitle').html());
+		    $('input[name="rno"]').val(rno);
+		    
+		    $('.modal-footer .btn').hide();
+		    $('.replyRemove, .replyModify, .replyClose').show();
+		    modal.modal('show');
+		  
+		});
+		
+		// 삭제
+		$('.replyRemove').click(function() {
+			// rno 찾기
+		    var rno = $('input[name="rno"]').val();
+		
+		    $.ajax({
+		        url: '/replies/' + rno,
+		        method: 'delete',
+		        success: function(res){
+		            console.log(res);
+		           	if(res == 'success'){
+		           		alert('댓글이 삭제됨');
+		           		modal.modal('hide');
+		           		loadJSONData();
+		           	}
+		        }
+		    }); // End of del send
+		});// End of Delete
+		
+		// 수정
+		$('.replyModify').click(function() {
+			// rno 찾기
+		    var rno = $('input[name="rno"]').val();
+			var reply = {
+				rno: rno,
+				text: $('input[name="replyText"]').val(),
+				replyer: $('input[name="replyer"]').val()
+			};
+		    $.ajax({
+		        url: '/replies/' + rno,
+		        method: 'put',
+		        data:JSON.stringify(reply),
+				contentType: 'application/json; charset=utf-8', 
+		        success: function(res){
+		           		alert('댓글이 수정됨');
+		           		modal.modal('hide');
+		           		loadJSONData();
+		        }
+		    }); 
+		});// End of Modify
+		
+		
+		
+	});
+	</script>
+	</th:block>
+
+</th:block>
