@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>전체 리스트 페이지</title>
+</head>
+<body>
+	<h2>메모 리스트</h2>
+	<a href="/memo/register">등록</a>
+	<ul>
+		<li th:each="memo : ${list}">
+			<a th:href="@{/memo/read(id=${memo.id})}"><span th:text="${memo.id}"></span></a>
+			-
+			<span th:text="${memo.memoText}"></span>
+			
+			<a th:href="@{/memo/read(id=${memo.id})}">조회</a>
+			<a th:href="@{/memo/remove(id=${memo.id})}">삭제</a>
+		</li>
+	</ul>
+</body>
+</html>

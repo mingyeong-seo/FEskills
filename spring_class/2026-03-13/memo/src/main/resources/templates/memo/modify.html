@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Memo modify</title>
+</head>
+<body>
+    <h1>Memo Modify</h1>
+
+    <form th:action="@{/memo/modify}" method="post">
+        <input type="hidden" name="id" th:value="${memo.id}">
+
+        <div>
+            <label>Memo Text</label>
+            <input type="text" name="memoText" th:value="${memo.memoText}">
+        </div>
+
+        <button type="submit">수정</button>
+    </form>
+</body>
+</html>
