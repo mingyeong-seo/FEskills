@@ -1,7 +1,3 @@
-## 수업 과제 코드 위치
+# FEskills
+프론트엔드 및 웹 개발 학습 과정에서 작성한 실습 코드와 개인 복습 내용을 정리한 레포지토리입니다.
 
-수업 과제 및 실습 코드는 `java_class/src/javaFund/lecture` 경로 아래에 정리되어 있습니다.
-
-- Score.java
-- Score2.java
-- GawibawiboVer2.java
